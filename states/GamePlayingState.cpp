@@ -29,7 +29,7 @@ std::unique_ptr<Selection> getPlayerSelection()
     }
     else
     {
-      std::cout << "You entered wrong choise. Please enter one of r, p or s\n";
+      console->printWrongChoice();
     }
   }
   return selection;

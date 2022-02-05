@@ -32,6 +32,7 @@ struct En
   static constexpr const char* score_table = "Score Table";
   static constexpr const char* wins = "wins";
   static constexpr const char* choice = "choice";
+  static constexpr const char* wrong_choice = "You entered wrong choise. Please enter one of r, p or s";
 };
 
 struct Nl
@@ -63,6 +64,7 @@ struct Nl
   static constexpr const char* score_table = "Score Tabel";
   static constexpr const char* wins = "wint";
   static constexpr const char* choice = "keuze";
+  static constexpr const char* wrong_choice = "U heeft een verkeerde keuze ingevoerd. Voer een van r, p of s in";
 };
 
 struct Tr
@@ -94,6 +96,7 @@ struct Tr
   static constexpr const char* score_table = "Skor Tablosu";
   static constexpr const char* wins = "kazandı";
   static constexpr const char* choice = "seçimi";
+  static constexpr const char* wrong_choice = "Yanlış giriş yaptınız. Lütfen r, p or s seçeneklerinden birini girin";
 };
 
 template <typename Lang>
@@ -192,6 +195,11 @@ struct GameLanguage
       << Lang::score_table << ":\n"
       << game->player_one.player_name << ": " << game->player_one.score << "\t"
       << game->player_two.player_name << ": " << game->player_two.score << "\n";
+  }
+
+  void printWrongChoice() override
+  {
+    std::cout << Lang::wrong_choice << "\n";
   }
 
 };

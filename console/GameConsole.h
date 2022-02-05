@@ -34,6 +34,7 @@ struct GameConsole
   virtual void printRoundEntry(int round) = 0;
   virtual void printPlayerChoice(const std::string& player, const std::string& choice) = 0;
   virtual void printScoreTable(struct IGame* game) = 0;
+  virtual void printWrongChoice() = 0;
 };
 
 extern std::shared_ptr<GameConsole> console;

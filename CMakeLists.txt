@@ -17,6 +17,8 @@ set(header_files
     "console/language_support.h"
     "utils/keyboard_helper.hpp"
     "utils/CommandLineParser.h"
+    "strategies/GameStrategy.h"
+    "strategies/BasicStrategy.h"
     "states/GameState.h"
     "states/GameEnterState.h"
     "states/GameInitializationState.h"
