@@ -1,16 +1,16 @@
 #include "console/GameConsole.h"
-#include "data/game_data.h"
+#include "game/GameData.h"
 #include "GameOverState.h"
 #include <iostream>
 
 extern std::shared_ptr<GameConsole> console;
 
 GameOverState::GameOverState(IGame *game)
-  : GameState(game) 
+    : GameState(game)
 {
 }
 
-ScoreResults GameOverState::getGameResults() 
+ScoreResults GameOverState::getGameResults()
 {
   if (game->player_one.score > game->player_two.score)
   {
@@ -20,13 +20,14 @@ ScoreResults GameOverState::getGameResults()
   {
     return ScoreResults::p2_wins;
   }
-  else 
+  else
   {
     return ScoreResults::no_win;
   }
 }
 
-void GameOverState::run() {
+void GameOverState::run()
+{
   console->printGameOverMessage();
   auto results = getGameResults();
   switch (results)

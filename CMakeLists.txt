@@ -10,7 +10,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 set(header_files 
-    "data/game_data.h" 
+    "game/GameData.h" 
+    "game/RPSGame.h" 
+    "game/Selections.h" 
     "console/GameConsole.h" 
     "console/language_support.h"
     "utils/keyboard_helper.hpp"
@@ -23,6 +25,7 @@ set(header_files
     "states/GameOverState.h"
     "states/GameStateMachine.h")
 set(source_files 
+    "game/RPSGame.cpp" 
     "console/GameConsole.cpp" 
     "utils/CommandLineParser.cpp"
     "states/GameState.cpp"
@@ -32,7 +35,7 @@ set(source_files
     "states/GamePlayingState.cpp"
     "states/GameOverState.cpp"
     "states/GameStateMachine.cpp"
-    "game.cpp")
+    "main.cpp")
 # Add source to this project's executable.
 add_executable (${PROJECT_NAME} ${source_files} ${header_files})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_SOURCE_DIR})

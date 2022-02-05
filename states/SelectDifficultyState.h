@@ -1,10 +1,10 @@
 
 #pragma once
-#include "data/game_data.h"
+#include "game/GameData.h"
 #include "GameState.h"
 
-struct SelectDifficultyState 
-  : public GameState 
+struct SelectDifficultyState
+    : public GameState
 {
   explicit SelectDifficultyState(IGame *game);
 

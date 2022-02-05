@@ -1,7 +1,7 @@
 #pragma once
 #include <random>
 #include "GameStrategy.h"
-#include "data/Selections.h"
+#include "game/Selections.h"
 
 struct BasicStrategy
     : public GameStrategy

@@ -3,7 +3,8 @@
 #include <string>
 #include "strategies/GameStrategy.h"
 
-enum class ScoreResults {
+enum class ScoreResults
+{
   p1_wins,
   p2_wins,
   no_win, // tie
@@ -12,21 +13,23 @@ enum class ScoreResults {
 struct Player
 {
   std::string player_name;
-  int score {0};
+  int score{0};
 };
 
 struct IGame
 {
   Player player_one;
   Player player_two;
-  bool game_over {false};
+  bool game_over{false};
   std::unique_ptr<GameStrategy> game_strategy;
-  
-  auto getStrategy() const {
+
+  auto getStrategy() const
+  {
     return game_strategy.get();
   }
 
-  void setStrategy(std::unique_ptr<GameStrategy> gs) {
+  void setStrategy(std::unique_ptr<GameStrategy> gs)
+  {
     game_strategy = std::move(gs);
   }
 };

@@ -1,9 +1,9 @@
 #pragma once
-#include "data/game_data.h"
+#include "game/GameData.h"
 #include "GameState.h"
 
-struct GameInitializationState 
-  : public GameState 
+struct GameInitializationState
+    : public GameState
 {
 public:
   explicit GameInitializationState(IGame *game);
