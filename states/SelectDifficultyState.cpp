@@ -1,20 +1,18 @@
 #include "console/GameConsole.h"
 #include "SelectDifficultyState.h"
 #include "GamePlayingState.h"
-#include "utils/keyboard_helper.hpp"
 #include "strategies/GameStrategy.h"
 #include "strategies/BasicStrategy.h"
 #include <string>
 #include <iostream>
 
-
-SelectDifficultyState::SelectDifficultyState(IGame *game) 
-  : GameState(game)
+SelectDifficultyState::SelectDifficultyState(IGame *game)
+    : GameState(game)
 {
   this->setNextState(std::make_shared<GamePlayingState>(game));
 }
 
-void SelectDifficultyState::run() 
+void SelectDifficultyState::run()
 {
   std::unique_ptr<GameStrategy> game_difficulty;
   while (!game_difficulty)
@@ -26,8 +24,8 @@ void SelectDifficultyState::run()
     if (difficulty == "1" || difficulty == "easy")
     {
       game_difficulty.reset(new BasicStrategy);
-    } 
-    else if (difficulty == "2" || difficulty == "hard") 
+    }
+    else if (difficulty == "2" || difficulty == "hard")
     {
       game_difficulty.reset(new BasicStrategy);
     }
