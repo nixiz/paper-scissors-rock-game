@@ -3,7 +3,6 @@
 #include "SelectDifficultyState.h"
 #include "utils/keyboard_helper.hpp"
 
-extern std::shared_ptr<GameConsole> console;
 
 GameInitializationState::GameInitializationState(IGame *game)
   : GameState(game)

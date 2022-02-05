@@ -3,7 +3,6 @@
 #include "GameOverState.h"
 #include <iostream>
 
-extern std::shared_ptr<GameConsole> console;
 
 GameOverState::GameOverState(IGame *game)
     : GameState(game)

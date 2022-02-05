@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "console/GameConsole.h"
 
 struct Selection
 {
@@ -30,7 +31,7 @@ struct Paper final
   }
   std::string getName() const override
   {
-    return "Paper";
+    return console->getPaperName();
   }
 };
 
@@ -45,7 +46,7 @@ struct Rock final
   }
   std::string getName() const override
   {
-    return "Rock";
+    return console->getRockName();
   }
 };
 
@@ -60,7 +61,7 @@ struct Scissors final
   }
   std::string getName() const override
   {
-    return "Scissors";
+    return console->getScissorsName();
   }
 };
 

@@ -7,7 +7,6 @@
 #include <string>
 #include <iostream>
 
-extern std::shared_ptr<GameConsole> console;
 
 SelectDifficultyState::SelectDifficultyState(IGame *game) 
   : GameState(game)

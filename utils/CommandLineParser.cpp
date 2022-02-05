@@ -5,13 +5,8 @@ CommandLineParser::CommandLineParser(int argc, const char *argv[])
     : total_args(argc), args(argv), current_arg_index(0)
 {
   // TODO(oguzhank): default language can be determined by localization of running host
-  console = std::shared_ptr<GameConsole>(new GameLanguage<En>);
+  console.reset(new GameLanguage<En>);
   parse();
-}
-
-std::shared_ptr<GameConsole> CommandLineParser::getConsole() const noexcept
-{
-  return console;
 }
 
 void CommandLineParser::parse()
@@ -30,7 +25,7 @@ void CommandLineParser::parse()
     else if (arg == "-h" || arg == "--help")
     {
       console->printMenu();
-      std::terminate();
+      std::exit(0);
     }
   }
 }
@@ -39,15 +34,15 @@ void CommandLineParser::parseLanguage(std::string_view lang)
 {
   if (lang == "en")
   {
-    console = std::make_shared<GameLanguage<En>>();
+    console.reset(new GameLanguage<En>);
   }
   else if (lang == "nl")
   {
-    console = std::make_shared<GameLanguage<Nl>>();
+    console.reset(new GameLanguage<Nl>);
   }
   else if (lang == "tr")
   {
-    console = std::make_shared<GameLanguage<Tr>>();
+    console.reset(new GameLanguage<Tr>);
   }
   else
   {

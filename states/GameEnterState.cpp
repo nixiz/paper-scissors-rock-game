@@ -2,7 +2,6 @@
 #include "GameEnterState.h"
 #include "GameInitializationState.h"
 
-extern std::shared_ptr<GameConsole> console;
 
 GameEnterState::GameEnterState(IGame *game) 
   : GameState(game) {

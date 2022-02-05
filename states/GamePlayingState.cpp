@@ -4,8 +4,6 @@
 #include "GamePlayingState.h"
 #include "GameOverState.h"
 
-extern std::shared_ptr<GameConsole> console;
-
 std::unique_ptr<Selection> getPlayerSelection()
 {
   std::unique_ptr<Selection> selection;
@@ -54,10 +52,7 @@ GamePlayingState::GamePlayingState(IGame *game)
 
 void GamePlayingState::run()
 {
-  std::cout
-      << "\t~~Round: " << round++ << "~~\n"
-      << "(r)ock, (p)aper, (s)cissors, to quit please enter (q)uit\n"
-      << "Please enter your choise: ";
+  console->printRoundEntry(round++);
   std::unique_ptr<Selection> selection_p1 = game->getStrategy()->play();
   std::unique_ptr<Selection> selection_p2 = getPlayerSelection();
   if (selection_p2->getType() == Selection::done)
@@ -70,27 +65,24 @@ void GamePlayingState::run()
     this->setNextState(shared_from_this());
   }
 
-  std::cout
-      << game->player_one.player_name << " choise: " << selection_p1->getName() << "\n"
-      << game->player_two.player_name << " choise: " << selection_p2->getName() << "\n";
+  console->clearScreen();
+  console->printPlayerChoice(game->player_one.player_name, selection_p1->getName());
+  console->printPlayerChoice(game->player_two.player_name, selection_p2->getName());
 
   auto winner = defineStepWinner(*selection_p1, *selection_p2);
   switch (winner)
   {
   case ScoreResults::p1_wins:
     game->player_one.score++;
-    std::cout << game->player_one.player_name << " Wins!\n";
+    console->printWinnerOfRound(game->player_one.player_name);
     break;
   case ScoreResults::p2_wins:
     game->player_two.score++;
-    std::cout << game->player_two.player_name << " Wins!\n";
+    console->printWinnerOfRound(game->player_two.player_name);
     break;
   case ScoreResults::no_win:
-    std::cout << "Its a tie!\n";
+    console->printItsTieMessage();
     break;
   }
-  std::cout
-      << "Score table: \n"
-      << game->player_one.player_name << ": " << game->player_one.score << "\t"
-      << game->player_two.player_name << ": " << game->player_two.score << "\n";
+  console->printScoreTable(game);
 }
