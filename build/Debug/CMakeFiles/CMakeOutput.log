@@ -50,16 +50,16 @@ The CXX compiler identification is MSVC, found in "C:/Users/User/Downloads/imcch
 Detecting C compiler ABI info compiled with the following output:
 Change Dir: C:/Users/User/Downloads/imcchomeassignment/paper-scissors-rock-game/build/Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~4/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_31005 && [1/2] Building C object CMakeFiles\cmTC_31005.dir\CMakeCCompilerABI.c.obj
-[2/2] Linking C executable cmTC_31005.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~4/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_c3c5e && [1/2] Building C object CMakeFiles\cmTC_c3c5e.dir\CMakeCCompilerABI.c.obj
+[2/2] Linking C executable cmTC_c3c5e.exe
 
 
 
 Detecting CXX compiler ABI info compiled with the following output:
 Change Dir: C:/Users/User/Downloads/imcchomeassignment/paper-scissors-rock-game/build/Debug/CMakeFiles/CMakeTmp
 
-Run Build Command(s):C:/PROGRA~2/MICROS~4/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_49fe7 && [1/2] Building CXX object CMakeFiles\cmTC_49fe7.dir\CMakeCXXCompilerABI.cpp.obj
-[2/2] Linking CXX executable cmTC_49fe7.exe
+Run Build Command(s):C:/PROGRA~2/MICROS~4/2019/COMMUN~1/Common7/IDE/COMMON~1/MICROS~1/CMake/Ninja/ninja.exe cmTC_ae453 && [1/2] Building CXX object CMakeFiles\cmTC_ae453.dir\CMakeCXXCompilerABI.cpp.obj
+[2/2] Linking CXX executable cmTC_ae453.exe
 
 
 
