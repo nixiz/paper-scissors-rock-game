@@ -3,6 +3,7 @@
 #include "GamePlayingState.h"
 #include "strategies/GameStrategy.h"
 #include "strategies/BasicStrategy.h"
+#include "strategies/HardStrategy.h"
 #include <string>
 #include <iostream>
 
@@ -27,7 +28,7 @@ void SelectDifficultyState::run()
     }
     else if (difficulty == "2" || difficulty == "hard")
     {
-      game_difficulty.reset(new BasicStrategy);
+      game_difficulty.reset(new HardStrategy);
     }
   }
   game->setStrategy(std::move(game_difficulty));

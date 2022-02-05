@@ -81,6 +81,8 @@ void GamePlayingState::run()
     console->printWinnerOfRound(game->player_two.player_name);
     break;
   case ScoreResults::no_win:
+    game->player_one.score++;
+    game->player_two.score++;
     console->printItsTieMessage();
     break;
   }

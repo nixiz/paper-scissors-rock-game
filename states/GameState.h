@@ -8,7 +8,6 @@ struct GameState
   virtual ~GameState();
 
   virtual void run() = 0;
-  virtual void onKey(int key) {}
 
   std::shared_ptr<struct GameState> getNextState();
   void setNextState(const std::shared_ptr<struct GameState> &);

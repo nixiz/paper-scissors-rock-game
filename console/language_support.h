@@ -5,9 +5,9 @@
 
 struct En
 {
-  static constexpr const char* rock_str = "Rock";
-  static constexpr const char* paper_str = "Paper";
-  static constexpr const char* scissors_str = "Scissors";
+  static constexpr const char *rock_str = "Rock";
+  static constexpr const char *paper_str = "Paper";
+  static constexpr const char *scissors_str = "Scissors";
   static constexpr const char *welcome_str = "Welcome to Paper Rock Scissors Game\n";
   static constexpr const char *menu_str = "RockPaperScissorsGame command line interface:\n"
                                           "-l, --language: Select game language for playing. Default: en\n"
@@ -28,18 +28,18 @@ struct En
   static constexpr const char *round_str = "Round: ";
   static constexpr const char *round_msg = "(r)ock, (p)aper, (s)cissors, to quit please enter (q)uit\n"
                                            "Please enter your choice: ";
-  static constexpr const char* its_a_tie = "Its a tie!";
-  static constexpr const char* score_table = "Score Table";
-  static constexpr const char* wins = "wins";
-  static constexpr const char* choice = "choice";
-  static constexpr const char* wrong_choice = "You entered wrong choise. Please enter one of r, p or s";
+  static constexpr const char *its_a_tie = "Its a tie!";
+  static constexpr const char *score_table = "Score Table";
+  static constexpr const char *wins = "wins";
+  static constexpr const char *choice = "choice";
+  static constexpr const char *wrong_choice = "You entered wrong choise. Please enter one of r, p or s";
 };
 
 struct Nl
 {
-  static constexpr const char* rock_str = "Steen";
-  static constexpr const char* paper_str = "Papier";
-  static constexpr const char* scissors_str = "Schaar";
+  static constexpr const char *rock_str = "Steen";
+  static constexpr const char *paper_str = "Papier";
+  static constexpr const char *scissors_str = "Schaar";
   static constexpr const char *welcome_str = "Welkom bij Paper Rock Scissors Game\n";
   static constexpr const char *menu_str = "RockPaperScissorsGame opdrachtregelinterface:\n"
                                           "-l, --language: Selecteer de speltaal om te spelen. Standaard: en\n"
@@ -60,18 +60,18 @@ struct Nl
   static constexpr const char *round_str = "Ronde: ";
   static constexpr const char *round_msg = "(r)ock, (p)aper, (s)cissors, om te stoppen, voer (q)uit in\n"
                                            "Gelieve uw keuze in te vullen: ";
-  static constexpr const char* its_a_tie = "Het is een gelijkspel!";
-  static constexpr const char* score_table = "Score Tabel";
-  static constexpr const char* wins = "wint";
-  static constexpr const char* choice = "keuze";
-  static constexpr const char* wrong_choice = "U heeft een verkeerde keuze ingevoerd. Voer een van r, p of s in";
+  static constexpr const char *its_a_tie = "Het is een gelijkspel!";
+  static constexpr const char *score_table = "Score Tabel";
+  static constexpr const char *wins = "wint";
+  static constexpr const char *choice = "keuze";
+  static constexpr const char *wrong_choice = "U heeft een verkeerde keuze ingevoerd. Voer een van r, p of s in";
 };
 
 struct Tr
 {
-  static constexpr const char* rock_str = "Taş";
-  static constexpr const char* paper_str = "Kağıt";
-  static constexpr const char* scissors_str = "Makas";
+  static constexpr const char *rock_str = "Taş";
+  static constexpr const char *paper_str = "Kağıt";
+  static constexpr const char *scissors_str = "Makas";
   static constexpr const char *welcome_str = "Taş Kağıt Makas Oyununa Hoşgeldiniz\n";
   static constexpr const char *menu_str = "RockPaperScissorsGame komut satırı özellikleri:\n"
                                           "-l, --language: Oyun dilini belirler. Varsayılan: en\n"
@@ -92,18 +92,18 @@ struct Tr
   static constexpr const char *round_str = "Tur: ";
   static constexpr const char *round_msg = "(r)ock, (p)aper, (s)cissors, oyundan çıkmak için (q)uit yazın\n"
                                            "Lütfen seçiminizi girin: ";
-  static constexpr const char* its_a_tie = "Berabere!";
-  static constexpr const char* score_table = "Skor Tablosu";
-  static constexpr const char* wins = "kazandı";
-  static constexpr const char* choice = "seçimi";
-  static constexpr const char* wrong_choice = "Yanlış giriş yaptınız. Lütfen r, p or s seçeneklerinden birini girin";
+  static constexpr const char *its_a_tie = "Berabere!";
+  static constexpr const char *score_table = "Skor Tablosu";
+  static constexpr const char *wins = "kazandı";
+  static constexpr const char *choice = "seçimi";
+  static constexpr const char *wrong_choice = "Yanlış giriş yaptınız. Lütfen r, p or s seçeneklerinden birini girin";
 };
 
 template <typename Lang>
 struct GameLanguage
     : public GameConsole
 {
-  std::string getRockName() const override 
+  std::string getRockName() const override
   {
     return Lang::rock_str;
   }
@@ -112,10 +112,20 @@ struct GameLanguage
   {
     return Lang::paper_str;
   }
-  
+
   std::string getScissorsName() const override
   {
     return Lang::scissors_str;
+  }
+
+  std::string getEasyString() const override
+  {
+    return Lang::easy_str;
+  }
+
+  std::string getHardString() const override
+  {
+    return Lang::hard_str;
   }
 
   void printWelcomeScreen() override
@@ -166,13 +176,13 @@ struct GameLanguage
   {
     std::cout << Lang::this_game_is_tie << "\n";
   }
-  
+
   void printItsTieMessage() override
   {
     std::cout << Lang::its_a_tie << "\n";
   }
 
-  void printWinnerOfRound(const std::string& winner) override
+  void printWinnerOfRound(const std::string &winner) override
   {
     std::cout << winner << " " << Lang::wins << "!\n";
   }
@@ -184,22 +194,21 @@ struct GameLanguage
         << Lang::round_msg;
   }
 
-  void printPlayerChoice(const std::string& player, const std::string& choice) override
+  void printPlayerChoice(const std::string &player, const std::string &choice) override
   {
     std::cout << player << " " << Lang::choice << ": " << choice << "\n";
   }
 
-  void printScoreTable(IGame* game) override
+  void printScoreTable(IGame *game) override
   {
     std::cout
-      << Lang::score_table << ":\n"
-      << game->player_one.player_name << ": " << game->player_one.score << "\t"
-      << game->player_two.player_name << ": " << game->player_two.score << "\n";
+        << Lang::score_table << ":\n"
+        << game->player_one.player_name << ": " << game->player_one.score << "\t"
+        << game->player_two.player_name << ": " << game->player_two.score << "\n";
   }
 
   void printWrongChoice() override
   {
     std::cout << Lang::wrong_choice << "\n";
   }
-
 };

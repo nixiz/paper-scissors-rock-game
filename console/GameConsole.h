@@ -21,6 +21,8 @@ struct GameConsole
   virtual std::string getRockName() const = 0;
   virtual std::string getPaperName() const = 0;
   virtual std::string getScissorsName() const = 0;
+  virtual std::string getEasyString() const = 0;
+  virtual std::string getHardString() const = 0;
   virtual void printWelcomeScreen() = 0;
   virtual void printMenu() = 0;
   virtual void promtPlayerName() = 0;
@@ -30,10 +32,10 @@ struct GameConsole
   virtual void printWinnerMessage(const std::string &winner) = 0;
   virtual void printTieMessage() = 0;
   virtual void printItsTieMessage() = 0;
-  virtual void printWinnerOfRound(const std::string& winner) = 0;
+  virtual void printWinnerOfRound(const std::string &winner) = 0;
   virtual void printRoundEntry(int round) = 0;
-  virtual void printPlayerChoice(const std::string& player, const std::string& choice) = 0;
-  virtual void printScoreTable(struct IGame* game) = 0;
+  virtual void printPlayerChoice(const std::string &player, const std::string &choice) = 0;
+  virtual void printScoreTable(struct IGame *game) = 0;
   virtual void printWrongChoice() = 0;
 };
 

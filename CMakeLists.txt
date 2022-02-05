@@ -18,6 +18,7 @@ set(header_files
     "utils/CommandLineParser.h"
     "strategies/GameStrategy.h"
     "strategies/BasicStrategy.h"
+    "strategies/HardStrategy.h"
     "states/GameState.h"
     "states/GameEnterState.h"
     "states/GameInitializationState.h"

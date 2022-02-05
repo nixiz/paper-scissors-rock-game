@@ -3,17 +3,19 @@
 #include "GameStrategy.h"
 #include "game/Selections.h"
 
-struct BasicStrategy
+struct HardStrategy
     : public GameStrategy
 {
-  BasicStrategy()
+  Selection::type selection = Selection::none;
+
+  HardStrategy()
   {
     srand(time(NULL));
   }
 
   std::unique_ptr<Selection> play() override
   {
-    Selection::type selection = Selection::type((rand() % Selection::scissors) + 1);
+    selection = static_cast<Selection::type>((selection % Selection::scissors) + 1);
     switch (selection)
     {
     case Selection::paper:
@@ -30,6 +32,6 @@ struct BasicStrategy
 
   std::string getDifficultyName() const override
   {
-    return console->getEasyString();
+    return console->getHardString();
   }
 };
